@@ -5,6 +5,11 @@ class Library extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Text('Library', style: TextStyle(fontSize: 40, color: Colors.yellow)));
+    return SafeArea(
+
+        child: Container(
+          color: Colors.amber,
+        )
+    );
   }
 }

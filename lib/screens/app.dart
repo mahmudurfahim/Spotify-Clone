@@ -21,22 +21,23 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
 
       body: Tabs[CurrentTabIndex],
-
-
       backgroundColor: Colors.black,
+
+
+
+
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: CurrentTabIndex,
         onTap: (CurrentIndex){
           CurrentTabIndex = CurrentIndex;
-           setState(() {
-             
-           });
+           setState(() {});
 
 
         },
         selectedLabelStyle: TextStyle(color: Colors.white),
+
         
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home, color: Colors.black),
             label: 'Home',
@@ -52,6 +53,9 @@ class _MyAppState extends State<MyApp> {
           ),
         ],
       ),
+
+
+
     );
   }
 }
