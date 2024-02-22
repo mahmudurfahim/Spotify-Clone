@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/models/catagory_operations.dart';
+import 'package:spotify_clone/models/music.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -21,6 +22,12 @@ class Home extends StatelessWidget {
 
   }
 
+
+
+
+
+
+//Category
   Widget createCategory(Category category){
     return  Container(
       color: Colors.blueGrey.shade400,
@@ -36,7 +43,6 @@ class Home extends StatelessWidget {
     );
   }
 
-
   List<Widget>  createListofCategories(){
     List<Category> categoryList = CategoryOperations.getCategories(); //Receive data
     //converted data to widgets using map function
@@ -46,12 +52,54 @@ class Home extends StatelessWidget {
 
 
 
+//Create Music
+  Widget createMusic (Music music){
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Container(
+            height: 200,
+            width: 200,
+            child: Image.network(music.image,
+              fit: BoxFit.cover,),
+          ),
+          Text(music.name, style: TextStyle(color: Colors.white)),
+          Text(music.desc, style: TextStyle(color: Colors.green.shade300)),
+      
+      
+        ],
+      ),
+    );
+    
+  }
+
+
+
+  Widget createMusicList(String label){
+    List<Music> musicList = MusicOperation.getMusic();
+    return Container(
+      height: 300,
+
+      child: ListView.builder(
+
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (ctx, index){
+          return createMusic(musicList[index]);
+
+      },
+        itemCount: musicList.length,
+      ),
+    );
+
+  }
+
 
 
   Widget createGrid(){
     return Container(
       padding: EdgeInsets.all(10),
-      height: 400,
+      height: 300,
       child: GridView.count(
         childAspectRatio: 5/2,
         crossAxisSpacing: 10,
@@ -83,7 +131,8 @@ class Home extends StatelessWidget {
               height: 5,
             ),
 
-            createGrid()
+            createGrid(),
+            createMusicList('Music For You')
 
           ],),
 
