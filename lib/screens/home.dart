@@ -156,7 +156,9 @@ class Home extends StatelessWidget {
 
               createGrid(),
               createMusicList('Music For You'),
-              createMusicList('Popular Playlist')
+              createMusicList('Popular Playlist'),
+              createMusicList('Your Top Mixes'),
+              createMusicList('Based on your recent listening'),
 
             ],),
 
